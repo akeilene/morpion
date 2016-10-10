@@ -1,0 +1,151 @@
+* { box-sizing: border-box;  } 
+
+body {
+    background: #fff;
+    color: #333;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    font-style: normal; 
+}
+
+#content {
+    position: relative;
+    width: 960px;
+    margin: 50px auto;
+    box-shadow: 5px 6px 10px 1px rgba(192,192,192,0.2);
+    text-align: center;
+    padding: 50px 0;
+}
+
+h2 {
+    color: #3d4045;
+    text-transform: uppercase;
+    font-size: 1.8rem;
+}
+
+p {
+    font-size: 1.3rem;
+}
+
+#plateau {
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    text-align: center;
+    margin: 0 auto;
+}
+
+#plateau td {
+    width: 150px;
+    height: 150px;
+    margin: 0px;
+    padding: 0px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    position: relative;
+}
+
+#plateau td:before, #plateau td:after {
+    position: absolute; 
+    left: 10%;
+    content: "";
+    width: 80%;
+}
+
+#plateau td.joueur1:after {
+    transform: rotate(135deg);
+    border: 3px solid #3d4045;
+    transition: transform 0.3s;
+}
+
+#plateau td.joueur1:before {
+    transform: rotate(-135deg);
+    border: 3px solid #3d4045;
+    transition: transform 0.3s;
+}
+
+#plateau td.joueur2:after {
+    border-radius: 50%;
+    width: 70%;
+    height: 70%;
+    background: #3d4045;
+    top: 15%;
+    left: 15%;
+    transition: background 0.3s;
+}
+
+.visible {
+    display: block;
+}
+
+.hidden {
+    display: none;
+}
+
+#overlay {
+    background-color: rgba(42, 50, 75, 0.9);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 5;
+}
+
+#message {
+    position: absolute;
+    width: 350px;
+    background: #fff;
+    top: 35%;
+    transform: translate(-50%);
+    left: 50%;
+    padding: 30px;
+    text-align: center;
+}
+
+#replay {
+    border: 1px solid rgb(218,36,72);
+    background: #fff;
+    padding: 15px 30px;
+    color: rgb(218,36,72);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background 0.3s;
+    outline: none;
+}
+
+#replay:hover {
+    background: rgb(218,36,72);
+    color: #fff;
+}
+
+@media only screen and (max-width: 960px) {
+    #content {
+        width: 90%;
+        padding: 10px 0;
+        margin-top: 10px;
+    }
+
+    #plateau {
+        width: 90%;
+    }
+
+    #plateau td {
+        width: 30%;
+    }
+
+    #plateau td:before, #plateau td:after {
+        left: 20%;
+        content: "";
+        width: 60%;
+    }
+
+    #plateau td.joueur2:after {
+        border-radius: 50%;
+        width: 50%;
+        height: 50%;
+        top: 25%;
+        left: 25%;
+    }
+}
